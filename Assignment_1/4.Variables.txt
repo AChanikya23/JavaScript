@@ -1,0 +1,79 @@
+Variable Scope in JavaScript
+1. Global Scope
+
+Definition: A variable is globally scoped when it’s declared outside any function. It can be accessed anywhere in the code.
+Example:
+
+Copy
+let globalVar = "I am global";
+
+function showGlobal() {
+    console.log(globalVar); // Accessible here
+}
+
+showGlobal(); // Output: I am global
+---------------------------------------------------------------------------------------------------------------------------
+
+2. Local Scope
+
+Definition: A variable is locally scoped when it’s declared inside a function. It can only be accessed within that function.
+Example:
+
+Copy
+function showLocal() {
+    let localVar = "I am local";
+    console.log(localVar); // Accessible here
+}
+
+showLocal(); // Output: I am local
+console.log(localVar); // Error: localVar is not defined
+---------------------------------------------------------------------------------------------------------------------------
+
+3. Block Scope
+
+Definition: A variable is block-scoped when it’s declared inside a block (like an if statement or a loop) using let or const. It can only be accessed within that block.
+Example:
+
+Copy
+{
+    let blockVar = "I am block-scoped";
+    console.log(blockVar); // Accessible here
+}
+
+console.log(blockVar); // Error: blockVar is not defined
+---------------------------------------------------------------------------------------------------------------------------
+Potential Issues
+---------------------------------------------------------------------------------------------------------------------------
+1. Variable Shadowing
+
+Definition: This happens when a local variable has the same name as a global variable. The local variable "shadows" the global one.
+Example:
+
+Copy
+let shadowedVar = "I am global";
+
+function shadowExample() {
+    let shadowedVar = "I am local"; // Shadows the global variable
+    console.log(shadowedVar); // Output: I am local
+}
+
+shadowExample();
+console.log(shadowedVar); // Output: I am global
+---------------------------------------------------------------------------------------------------------------------------
+2. Reference Errors
+
+Definition: Trying to access a variable that is out of scope results in a reference error.
+Example:
+
+Copy
+function testScope() {
+    let localVar = "I am local";
+}
+testScope();
+console.log(localVar); // Error: localVar is not defined
+---------------------------------------------------------------------------------------------------------------------------
+
+Summary
+Global Scope: Accessible everywhere.
+Local Scope: Accessible only within the function.
+Block Scope: Accessible only within the block.
