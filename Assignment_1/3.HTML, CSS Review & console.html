@@ -1,0 +1,27 @@
+<ul id="myList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+</ul>
+
+<script>
+// Select all the list items
+const listItems = document.querySelectorAll('#myList li');
+
+// Log each item's text content
+listItems.forEach(item => {
+    console.log(item.textContent);
+});
+
+// Add a class "highlight" to every second list item
+listItems.forEach((item, index) => {
+    if (index % 2 === 1) {
+        item.classList.add('highlight');
+    }
+});
+
+// Log the total number of list items
+console.log(`Total number of list items: ${listItems.length}`);
+</script>
