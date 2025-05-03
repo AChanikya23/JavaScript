@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+</head>
+<body>
+  <h2>Login Form</h2>
+  <form id="loginForm">
+    <label>Username:</label>
+    <input type="text" id="username"><br><br>
+    <label>Password:</label>
+    <input type="password" id="password"><br><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <p id="result"></p>
+
+  <script src="login.js"></script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      const success = authenticate(username, password);
+      document.getElementById("result").textContent = success ? "Login successful!" : "Login failed.";
+    });
+  </script>
+</body>
+</html>
